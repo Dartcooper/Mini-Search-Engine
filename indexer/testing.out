@@ -1,0 +1,76 @@
+gcc -Wall -pedantic -std=c11 -ggdb  -I../common -I../libcs50   -c -o indexer.o indexer.c
+make -C ../common
+make[1]: Entering directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/common'
+gcc -Wall -pedantic -std=c11 -ggdb -I../libcs50   -c -o pagedir.o pagedir.c
+gcc -Wall -pedantic -std=c11 -ggdb -I../libcs50   -c -o word.o word.c
+gcc -Wall -pedantic -std=c11 -ggdb -I../libcs50   -c -o index.o index.c
+ar cr common.a pagedir.o word.o index.o
+make[1]: Leaving directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/common'
+make -C ../libcs50
+make[1]: Entering directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/libcs50'
+cp libcs50-given.a libcs50.a
+make[1]: Leaving directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/libcs50'
+gcc -Wall -pedantic -std=c11 -ggdb  -I../common -I../libcs50 indexer.o -o indexer ../libcs50/libcs50-given.a ../common/common.a
+gcc -Wall -pedantic -std=c11 -ggdb  -I../common -I../libcs50   -c -o indextest.o indextest.c
+make -C ../common
+make[1]: Entering directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/common'
+make[1]: 'common.a' is up to date.
+make[1]: Leaving directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/common'
+make -C ../libcs50
+make[1]: Entering directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/libcs50'
+make[1]: 'libcs50.a' is up to date.
+make[1]: Leaving directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/libcs50'
+gcc -Wall -pedantic -std=c11 -ggdb  -I../common -I../libcs50 indextest.o -o indextest ../libcs50/libcs50-given.a ../common/common.a
+bash testing.sh
+make[1]: Entering directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/indexer'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/indexer'
+*** need to pass exactly two arguments
+*** need to pass exactly two arguments
+*** need to pass exactly two arguments
+NULL POINTER: *** invalid directory, make sure the directory exists, can be written, and has a .crawler file
+NULL POINTER: *** invalid directory, make sure the directory exists, can be written, and has a .crawler file
+NULL POINTER: *** invalid directory, make sure the directory exists, can be written, and has a .crawler file
+NULL POINTER: *** need to pass a proper file pathname (path exists, directory and file are not read only)
+NULL POINTER: *** need to pass a proper file pathname (path exists, directory and file are not read only)
+NULL POINTER: *** need to pass a proper file pathname (path exists, directory and file are not read only)
+make[1]: Entering directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/crawler'
+gcc -Wall -pedantic -std=c11 -ggdb  -I../common -I../libcs50   -c -o crawler.o crawler.c
+make -C ../common
+make[2]: Entering directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/common'
+make[2]: 'common.a' is up to date.
+make[2]: Leaving directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/common'
+make -C ../libcs50
+make[2]: Entering directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/libcs50'
+make[2]: 'libcs50.a' is up to date.
+make[2]: Leaving directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/libcs50'
+gcc -Wall -pedantic -std=c11 -ggdb  -I../common -I../libcs50 crawler.o -o crawler ../libcs50/libcs50-given.a ../common/common.a
+make[1]: Leaving directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/crawler'
+==373530== Memcheck, a memory error detector
+==373530== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==373530== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==373530== Command: ./indexer ../data/valLetters6 ../data/valLetters6index
+==373530== 
+==373530== 
+==373530== HEAP SUMMARY:
+==373530==     in use at exit: 0 bytes in 0 blocks
+==373530==   total heap usage: 1,275 allocs, 1,275 frees, 196,541 bytes allocated
+==373530== 
+==373530== All heap blocks were freed -- no leaks are possible
+==373530== 
+==373530== For lists of detected and suppressed errors, rerun with: -s
+==373530== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==373560== Memcheck, a memory error detector
+==373560== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==373560== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==373560== Command: ./indextest ../data/valLetters6index ../data/valLetters6indexcopy
+==373560== 
+==373560== 
+==373560== HEAP SUMMARY:
+==373560==     in use at exit: 0 bytes in 0 blocks
+==373560==   total heap usage: 335 allocs, 335 frees, 23,908 bytes allocated
+==373560== 
+==373560== All heap blocks were freed -- no leaks are possible
+==373560== 
+==373560== For lists of detected and suppressed errors, rerun with: -s
+==373560== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

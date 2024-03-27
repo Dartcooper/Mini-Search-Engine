@@ -1,0 +1,26 @@
+gcc -Wall -pedantic -std=c11 -ggdb  -I../common -I../libcs50   -c -o crawler.o crawler.c
+make -C ../common
+make[1]: Entering directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/common'
+gcc -Wall -pedantic -std=c11 -ggdb -I../libcs50   -c -o pagedir.o pagedir.c
+ar cr common.a pagedir.o
+make[1]: Leaving directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/common'
+make -C ../libcs50
+make[1]: Entering directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/libcs50'
+cp libcs50-given.a libcs50.a
+make[1]: Leaving directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/libcs50'
+gcc -Wall -pedantic -std=c11 -ggdb  -I../common -I../libcs50 crawler.o -o crawler ../libcs50/libcs50-given.a ../common/common.a
+./testing.sh
+make[1]: Entering directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/crawler'
+make[1]: 'crawler' is up to date.
+make[1]: Leaving directory '/thayerfs/home/f006k7j/cs50-dev/tse-Dartcooper/crawler'
+*** need to pass exactly three arguments
+*** need to pass exactly three arguments
+*** need to pass exactly three arguments
+*** need to pass exactly three arguments
+NULL POINTER: *** need to pass a proper URL
+*** need to pass an integer for maxDepth between 0 and 10
+*** need to pass an integer
+NULL POINTER: *** need to pass a proper URL
+*** need to pass an internal URL
+NULL POINTER: *** invalid directory, make sure the directory exists
+NULL POINTER: *** need to pass a proper URL
